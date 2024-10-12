@@ -1,14 +1,24 @@
-while True:
+def squares(a, b):
     try:
-        a = float(input("Введите число a: "))
-        b = float(input("Введите число b: "))
-        if a > b:
-            print("Ошибка: a должно быть меньше или равно b.")
-            continue
-        break
-    except ValueError:
-        print("Ошибка: Введите корректные числа.")
+        a = float(a)
+        b = float(b)
 
-# Находим квадраты только целых чисел в диапазоне от a до b (включительно)
-squares = [x**2 for x in range(int(a), int(b) + 1) if x == int(x)]
-print("Квадраты целых чисел:", squares)
+        start = min(a, b)
+        end = max(a, b)
+        start = int (start)
+        if end > int (end):
+            end = int (end)
+            squares = [i**2 for i in range(start + 1, end + 1)]
+        else:
+            end = int (end)
+            squares = [i**2 for i in range(start + 1, end)]
+
+        return squares
+    except ValueError:
+        return "Ошибка ввода: введите числовые значения."
+
+a = input("Введите первое число: ")
+b = input("Введите второе число: ")
+
+result = squares(a, b)
+print(result)
